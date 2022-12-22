@@ -33,6 +33,7 @@ sudo sysctl -w vm.zone_reclaim_mode=0
 sudo yum -y install numactl
 sudo sed -i 's/ExecStart=/ExecStart=\/usr\/bin\/numactl --interleave=all /' /usr/lib/systemd/system/mongod.service
 sudo systemctl daemon-reload
+sudo systemctl start mongod
 
 echo '=> Create Admin Account' >> ${SCRIPT_LOG_PATH}
 mongosh --eval "db.createUser({user:'root',pwd:'root',roles: [{role:'root',db:'admin'}]})" admin
