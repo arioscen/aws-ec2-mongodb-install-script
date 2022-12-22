@@ -4,6 +4,7 @@ export SCRIPT_LOG_PATH='/tmp/MongoDB_Install.log'
 
 echo '=> Install the latest stable version of MongoDB' >> ${SCRIPT_LOG_PATH}
 sudo sh -c "echo $'[mongodb-org-6.0]\nname=MongoDB Repository\nbaseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/x86_64/\ngpgcheck=1\nenabled=1\ngpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc' > /etc/yum.repos.d/mongodb-org-6.0.repo"
+sudo yum install -y mongodb-org
 # echo '=> Iinstall a specific release of MongoDB' >> ${SCRIPT_LOG_PATH}
 # sudo yum install -y mongodb-org-6.0.3 mongodb-org-database-6.0.3 mongodb-org-server-6.0.3 mongodb-mongosh-6.0.3 mongodb-org-mongos-6.0.3 mongodb-org-tools-6.0.3
 # sudo sh -c "echo exclude=mongodb-org,mongodb-org-database,mongodb-org-server,mongodb-mongosh,mongodb-org-mongos,mongodb-org-tools >> /etc/yum.conf"
